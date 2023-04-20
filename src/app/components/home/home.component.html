@@ -1,13 +1,21 @@
 
+
+
 <div class="container">
-    <div class="row" *ngFor="let product of products">
-        <div class="card" style="width: 18rem;">
-            <img src={{product.image}} class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{product.title}}</h5>
-                <p class="card-text">{{product.description}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-</div>
+  <button class="btn btn-primary" type="submit" (click)="goToCreate()">Create Product</button>
+  <div class="row" *ngFor="let product of products">
+    <div class="card" style="width: 20rem;">
+          <img src={{product.image}} class="card-img-top" alt="...">
+          <div class="card-body" >
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text">{{product.description}}</p>
+              <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary  ">Delete</button>
+
+              </div>
+          </div>
+      </div> 
+  </div>
+</div> 
+
+

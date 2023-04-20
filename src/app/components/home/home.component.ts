@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component,OnInit } from '@angular/core';
 import { FakestoreService } from 'src/app/services/fakestore.service';
 
@@ -7,15 +8,27 @@ import { FakestoreService } from 'src/app/services/fakestore.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private fakestore:FakestoreService){}
+  
+  
+  constructor(private fakestore:FakestoreService,private router:Router){}
 
+  //declare a variable to hold the data
   products:any[]=[];
 
   ngOnInit():void{
+
     this.fakestore.getProduct().subscribe((products:any)=>{
-      console.table(products)
+      console.table(products);
       this.products=products;
-    })
+    });
+
+    this.fakestore.deleteProduct().subscribe();
+
   }
+
+  
+    goToCreate(){
+      this.router.navigate(['/create']);
+    }
 
 }
